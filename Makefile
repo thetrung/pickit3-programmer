@@ -7,8 +7,8 @@ BUILD_DIR=$(PROJECT_DIR)/bin/$(BUILD_CONFIG)
 
 
 build:
-	nuget restore -NonInteractive
-	msbuild -t:Build -p:Configuration="$(BUILD_CONFIG)" -v:quiet
+	mono nuget.exe restore -NonInteractive
+	dotnet build -t:Build -p:Configuration="$(BUILD_CONFIG)" -v:quiet
 
 install: install-bundle install-bin install-link install-udev-rules
 
